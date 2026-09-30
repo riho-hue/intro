@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이리호 | Warm & Cozy Portfolio</title>
+    <style>
+        /* Warm & Cozy Design System */
+        :root {
+            --sidebar-bg: #FFF5EE;      /* Soft Apricot/Peach Background */
+            --main-bg: #ffffff;         /* Pure White Content */
+            --accent: #FFB38A;          /* Soft Apricot/Peach Accent */
+            --accent-dark: #E69573;     /* Deeper Peach for contrast */
+            --text-main: #4A423F;       /* Warm Dark Brown Text */
+            --text-sub: #8D837E;        /* Muted Warm Gray */
+            --border: #FEECE2;          /* Very Light Peach Border */
+            --card-shadow: 0 10px 30px rgba(255, 179, 138, 0.1);
+        }
+
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; 
+            background-color: #FFF9F5; /* Very light cream background */
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Layout Structure */
+        .resume-container {
+            display: flex;
+            max-width: 1000px;
+            margin: 50px auto;
+            background: var(--main-bg);
+            min-height: 1000px;
+            box-shadow: 0 30px 60px -12px rgba(255, 179, 138, 0.15);
+            border-radius: 40px; /* Rounder edges for cozy feel */
+            overflow: hidden;
+        }
+
+        /* Sidebar (Left) */
+        .sidebar {
+            width: 300px;
+            background-color: var(--sidebar-bg);
+            padding: 50px 35px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            background: var(--white);
+            border-radius: 40px; /* Squircle */
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .sidebar h1 { font-size: 1.7rem; text-align: center; margin-bottom: 5px; font-weight: 800; color: var(--text-main); }
+        .sidebar .role { text-align: center; font-size: 0.9rem; color: var(--accent-dark); margin-bottom: 45px; font-weight: 600; }
+
+        .sidebar-section { margin-bottom: 40px; }
+        .sidebar-title { 
+            font-size: 0.8rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            color: var(--text-sub);
+            letter-spacing: 0.12em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .contact-item { font-size: 0.85rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: var(--text-main); }
+        .contact-item span { color: var(--accent-dark); font-size: 1.1rem; }
+
+        /* Main Content (Right) */
+        .main-content {
+            flex: 1;
+            padding: 60px 60px;
+        }
+
+        .content-section { margin-bottom: 60px; }
+        .content-section h2 { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            margin-bottom: 25px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .content-section h2::after {
+            content: "";
+            height: 2px;
+            width: 40px;
+            background: var(--accent);
+            display: inline-block;
+            border-radius: 2px;
+        }
+
+        /* About Text */
+        .about-text { font-size: 1.1rem; color: var(--text-sub); line-height: 1.8; }
+
+        /* Grid & Cards - Soft & Rounded */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+        }
+        .card {
+            padding: 24px 16px;
+            border-radius: 20px;
+            text-align: center;
+            background: var(--white);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: var(--card-shadow);
+        }
+        .card .icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+        .card .value { font-weight: 700; font-size: 1rem; color: var(--text-main); }
+
+        /* Goal Highlight - Soft Peach Box */
+        .goal-box {
+            background: var(--sidebar-bg);
+            padding: 40px;
+            border-radius: 30px;
+            text-align: center;
+            border: 1px dashed var(--accent);
+        }
+        .goal-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+        }
+        .goal-label {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .resume-container { flex-direction: column; margin: 0; border-radius: 0; }
+            .sidebar { width: 100%; padding: 40px 20px; border-right: none; border-bottom: 1px solid var(--border); }
+            .main-content { padding: 40px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-img">👤</div>
+            <h1>이리호</h1>
+            <p class="role">Management Student</p>
+
+            <div class="sidebar-section">
+                <span class="sidebar-title">Contact</span>
+                <div class="contact-item"><span>📞</span> 010-1234-5678</div>
+                <div class="contact-item"><span>✉️</span> lee@example.com</div>
+                <div class="contact-item"><span>📍</span> Incheon, Korea</div>
+            </div>
+
+            <div class="sidebar-section">
+                <span class="sidebar-title">Expertise</span>
+                <div class="contact-item"><span>•</span> Data Analysis</div>
+                <div class="contact-item"><span>•</span> Market Research</div>
+                <div class="contact-item"><span>•</span> R Programming</div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- About Section -->
+            <section class="content-section">
+                <h2>About Me</h2>
+                <p class="about-text">
+                    안녕하세요, 이리호입니다. 잘 부탁드립니다. <br>
+                    따뜻한 시선으로 데이터를 바라보고, 사람 중심의 경영 전략을 고민합니다.
+                </p>
+            </section>
+
+            <!-- Interests Section -->
+            <section class="content-section">
+                <h2>Interests</h2>
+                <div class="grid">
+                    <div class="card">
+                        <span class="icon">📦</span>
+                        <div class="value">유통</div>
+                    </div>
+                    <div class="card">
+                        <span class="icon">📣</span>
+                        <div class="value">마케팅</div>
+                    </div>
+                    <div class="card">
+                        <span class="icon">🚀</span>
+                        <div class="value">창업</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lifestyle Section -->
+            <section class="content-section">
+                <h2>Lifestyle</h2>
+                <div class="grid">
+                    <div class="card">
+                        <span class="icon">🏀</span>
+                        <div class="value">농구</div>
+                    </div>
+                    <div class="card">
+                        <span class="icon">🎬</span>
+                        <div class="value">애니메이션</div>
+                    </div>
+                    <div class="card">
+                        <span class="icon">🎮</span>
+                        <div class="value">게임</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Goal Section -->
+            <section class="content-section">
+                <div class="goal-box">
+                    <span class="goal-label">My Personal Mission</span>
+                    <div class="goal-text">"28살 전에 자리잡기"</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
